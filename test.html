@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Market Sales Analysis</title>
+	<style>
+		/* Style the form and its elements */
+		form {
+			background-color: #ffffff;
+			border: 1px solid #dddddd;
+			border-radius: 5px;
+			padding: 20px;
+			margin: 20px auto;
+			max-width: 500px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		h1 {
+			font-size: 2em;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+			font-size: 1.2em;
+		}
+
+		input[type="text"], input[type="file"], input[type="submit"] {
+			display: block;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #dddddd;
+			border-radius: 5px;
+			width: 100%;
+			box-sizing: border-box;
+			font-size: 1.2em;
+			font-family: Arial, sans-serif;
+			background-color: #f8f8f8;
+			color: #333333;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+		}
+
+		input[type="submit"] {
+			background-color: #333333;
+			color: #ffffff;
+			cursor: pointer;
+		}
+
+		input[type="file"] {
+			padding: 0;
+			cursor: pointer;
+			border: none;
+			background-color: transparent;
+		}
+
+		input[type="file"]::-webkit-file-upload-button {
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: #333333;
+			color: #ffffff;
+			cursor: pointer;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+		}
+
+		/* Style the error message */
+		.error-message {
+			color: #ff0000;
+			font-size: 1.2em;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Market Sales Analysis</h1>
+	<form id="file-upload-form" method="post" enctype="multipart/form-data">
+		<label for="file-upload">Upload File:</label>
+		<input type="file" id="file-upload" name="file-upload">
+		<input type="submit" value="Upload">
+	</form>
+	<form id="url-upload-form" method="post">
+		<label for="url-upload">Upload URL:</label>
+		<input type="text" id="url-upload" name="url-upload">
+		<input type="submit" value="Upload">
+	</form>
+	<div id="error-message" class="error-message"></div>
+	<script>
+		
+		document.getElementById("file-upload-form").addEventListener("submit", function(event) {
+			event.preventDefault();
+			var fileInput = document.getElementById("file-upload");
+			var errorMessage = document.getElementById("error-message");
